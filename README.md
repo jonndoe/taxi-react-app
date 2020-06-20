@@ -57,6 +57,16 @@ Exit the database container:
 Migrate the database:
 - `sudo docker-compose -f docker-compose.yml exec taxi-server python manage.py migrate`
 
+Set permission for client/node_modules folder (for fronted testing):
+- `cd client`
+- `sudo chmod -R 777 node_modules/`
+
+Install Cypress:
+
+- `cd client` you have to be in client directory
+- `npm install cypress --save-dev`
+- `npx cypress open` now you can run all tests, they should pass.
+
 Go to `127.0.0.1:8080` and see app is running.
 
 
