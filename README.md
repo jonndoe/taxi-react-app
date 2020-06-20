@@ -48,6 +48,9 @@ Create `taxi` and `test` databases and `taxi` user:
 - `CREATE DATABASE taxi OWNER taxi;`
 - `CREATE DATABASE test OWNER taxi;`
 
+Give permissions for `taxi` user (to run backend tests):
+- `ALTER USER taxi CREATEDB;`
+
 Exit the database container:
 - `\q` or press `Ctrl + D`
 
