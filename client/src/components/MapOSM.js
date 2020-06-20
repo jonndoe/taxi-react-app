@@ -22,57 +22,7 @@ function Map (props) {
   };
 
   return (
-    <LoadScript
-      googleMapsApiKey='<YOUR_API_KEY>'
-    >
-      <GoogleMap
-        center={{
-          lat: props.lat,
-          lng: props.lng
-        }}
-        mapContainerStyle={{
-          width: '100%',
-          height: '300px',
-          'margin-bottom': '10px'
-        }}
-        zoom={props.zoom}
-      >
-        {
-          hasTwoAddresses && (
-            <DirectionsService
-              options={{
-                origin: props.pickUpAddress,
-                destination: props.dropOffAddress,
-                travelMode: 'DRIVING'
-              }}
-              callback={directionsCallback}
-            >
-            </DirectionsService>
-          )
-        }
-        {
-          hasTwoAddresses && response !== null && (
-            <DirectionsRenderer
-              options={{
-                directions: response
-              }}
-            />
-          )
-        }
-        {
-          !hasTwoAddresses && (
-            <Marker
-              label='A'
-              position={{
-                lat: props.lat,
-                lng: props.lng
-              }}
-            >
-            </Marker>
-          )
-        }
-      </GoogleMap>
-    </LoadScript>
+    <p>Hello ,here to  be OpenStreetMap</p>
   );
 }
 
