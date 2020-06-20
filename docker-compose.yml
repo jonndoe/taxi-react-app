@@ -20,6 +20,7 @@ services:
     volumes: 
       - media:/usr/src/app/media
       - static:/usr/src/app/static
+      - ./server:/usr/src/app
     command: daphne --bind 0.0.0.0 --port 8000 taxi.asgi:application
     container_name: taxi-server
     depends_on:
@@ -39,6 +40,8 @@ services:
       - taxi-server
     ports:
       - 30001:3000
+    #volumes:
+      #- ./client:/usr/src/app
 
   taxi-nginx:
     build:
