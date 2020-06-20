@@ -16,7 +16,7 @@ Login to database container:
 - `sudo docker-compose -f docker-compose.prod.yml exec taxi-database psql -U postgres`
 
 Create `taxi` and `test` databases and `taxi` user:
-- `CREATE USER taxi WITH PASSWORD taxi;`
+- `CREATE USER taxi WITH PASSWORD 'taxi';`
 - `CREATE DATABASE taxi OWNER taxi;`
 - `CREATE DATABASE test OWNER taxi;`
 
@@ -62,10 +62,14 @@ Set permission for client/node_modules folder (for fronted testing):
 - `sudo chmod -R 777 node_modules/`
 
 Install Cypress:
-
 - `cd client` you have to be in client directory
 - `npm install cypress --save-dev`
 - `npx cypress open` now you can run all tests, they should pass.
+
+Clean the test database after each Cypress test run:
+- `sudo docker-compose exec taxi-database psql -U taxi -d test`
+- `TRUNCATE trips_user CASCADE;`
+
 
 Go to `127.0.0.1:8080` and see app is running.
 
