@@ -36,7 +36,12 @@ Install `Firefox Multi-Account Containers` application and open new container fo
 
 # Run this app with OpenStreetMap instead of Google Maps:
 
-Todo (in progress)
+Start Graphhopper server locally:
+
+- https://github.com/jonndoe/graphhopper/blob/master/README.md
+
+Embed OpenStreetMaps into this app:
+- Todo (in progress)
 
 
 
