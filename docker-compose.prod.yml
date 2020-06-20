@@ -1,3 +1,6 @@
+# this docker-compose.prod.yml is not yet completed.
+# work is in progress
+
 version: '3.7'
 
 services:
@@ -17,7 +20,7 @@ services:
   taxi-server:
     build:
       context: ./server
-    volumes: 
+    volumes:
       - media:/usr/src/app/media
       - static:/usr/src/app/static
       - ./server:/usr/src/app
@@ -34,32 +37,24 @@ services:
   taxi-client:
     build:
       context: ./client
-      dockerfile: Dockerfile
-    command: npm start
+      dockerfile: Dockerfile.prod
+    #command: nginx -g daemon off
     container_name: taxi-client
     depends_on:
       - taxi-server
     ports:
-      - 30001:3000
-    # this volumes added for hot reload when developing.
-    volumes:
-      # copy from local to container
-      - './client:/usr/src/app'
-      # copy from container to local
-      - '/usr/src/app/node_modules'
-    # this is also for hot-reload when developing.
-    environment:
-      - CHOKIDAR_USEPOLLING=true
+      - 30001:80
 
   taxi-nginx:
     build:
       context: ./nginx
+      dockerfile: Dockerfile.prod
     container_name: taxi-nginx
     depends_on:
       - taxi-server
       - taxi-client
     ports:
-      - 8080:80
+      - 8080:81
     restart: always
     volumes:
       - media:/usr/src/app/media
