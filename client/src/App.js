@@ -44,7 +44,7 @@ function App () {
     <>
       <Navbar bg='light' expand='lg' variant='light'>
         <LinkContainer to='/'>
-          <Navbar.Brand className='logo'>Taxi</Navbar.Brand>
+          <Navbar.Brand className='logo'>Shmaaxi</Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle />
           <Navbar.Collapse>
