@@ -2,8 +2,7 @@
 See for original refference:
 https://testdriven.io/courses/taxi-react/
 
-
-# How to run this repo locally with docker:
+# Run in production with docker(not yet complete):
 
 Get repo:
 - Set up ssh for your github accoutn if not yet.
@@ -11,7 +10,35 @@ Get repo:
 - `cd taxi-react-app`
 
 Start up all containers:
-- `sudo docker-compose up --build`
+- `sudo docker-compose -f docker-compose.prod.yml up --build`
+
+Login to database container:
+- `sudo docker-compose -f docker-compose.prod.yml exec taxi-database psql -U postgres`
+
+Create `taxi` and `test` databases and `taxi` user:
+- `CREATE USER taxi WITH PASSWORD taxi;`
+- `CREATE DATABASE taxi OWNER taxi;`
+- `CREATE DATABASE test OWNER taxi;`
+
+Exit the database container:
+- `\q` or press `Ctrl + D`
+
+Migrate the database:
+- `sudo docker-compose -f docker-compose.prod.yml exec taxi-server python manage.py migrate`
+
+Go to `127.0.0.1:8080` and see app is running.
+
+
+
+# Run locally with docker:
+
+Get repo:
+- Set up ssh for your github accoutn if not yet.
+- `git clone git@github.com:jonndoe/taxi-react-app.git`
+- `cd taxi-react-app`
+
+Start up all containers:
+- `sudo docker-compose -f docker-compose.yml up --build`
 
 Login to database container:
 - `sudo docker-compose -f docker-compose.yml exec taxi-database psql -U postgres`
@@ -44,6 +71,9 @@ Embed OpenStreetMaps into this app:
 - Todo (in progress)
 
 
+# NOTES:
+
+- React client is set up for prod build (serving React static files inside separate nginx container)
 
 
 
