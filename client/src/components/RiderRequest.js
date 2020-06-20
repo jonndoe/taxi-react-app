@@ -8,6 +8,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { webSocket } from 'rxjs/webSocket';
 
 import Map from './Map';
+
 import { getAccessToken, getUser } from '../services/AuthService';
 
 function RiderRequest (props) {

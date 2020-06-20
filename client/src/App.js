@@ -10,7 +10,6 @@ import SignUp from './components/SignUp';
 import LogIn from './components/LogIn';
 import Driver from './components/Driver';
 import Rider from './components/Rider';
-import MapOSM from './components/MapOSM';
 
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
