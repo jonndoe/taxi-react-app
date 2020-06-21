@@ -8,6 +8,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { webSocket } from 'rxjs/webSocket';
 
 import Map from './Map';
+import MapOSM from "./MapOSM";
 
 import { getAccessToken, getUser } from '../services/AuthService';
 
@@ -90,6 +91,9 @@ function RiderRequest (props) {
                       pickUpAddress={values.pickUpAddress}
                       dropOffAddress={values.dropOffAddress}
                     />
+
+                    <MapOSM />
+
                     <Form.Group controlId='dropOffAddress'>
                       <Form.Label>Drop off address:</Form.Label>
                       <Form.Control

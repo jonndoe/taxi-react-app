@@ -73,7 +73,7 @@ function App () {
         <Switch>
           <Route exact path='/' render={() => (
             <div className='middle-center'>
-              <h1 className='landing logo'>Taxi</h1>
+              <h1 className='landing logo'>Shmaxi</h1>
               {
                 !isLoggedIn && (
                   <>
